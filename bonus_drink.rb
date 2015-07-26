@@ -1,13 +1,8 @@
 class BonusDrink
-  def self.total_count_for
-    puts("最初に何本購入しますか？")
-    amount=gets.to_i
-    if amount < 0
-      puts("1以上の数字を入れてください")
-    else
-    puts("最初に#{amount}本購入した場合、トータルで#{amount + amount/3}本飲めます。")
-    end
+  def self.total_count_for(amount)
+    return 0 if amount == 0
+    return amount + (amount - 1) / 2
   end
 
-  self.total_count_for()
+  puts "最初に100本購入した場合、トータルで#{BonusDrink.total_count_for 100}本飲めます。"
 end
